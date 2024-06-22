@@ -37,3 +37,22 @@ export let mostrarCelularesMarca = (req, res) => {
         });
     });
 };
+
+
+
+
+
+export let cel = (req, res) => {
+    console.log("Accediendo a la ruta /celulares");
+    connection.query("SELECT (Modelo_Celular, Marca_Celular) FROM Celulares")
+    .then((data) => {
+        console.log("Estos son los celulares: ", data[0]);
+        res.status(200).json(data[0]);
+    })
+    .catch((error) => {
+        console.error("Ha ocurrido un error durante la obtención de los celulares: ", error);
+        res.status(500).json({
+            mensaje: "Ha ocurrido un error durante la obtención de los celulares"
+        });
+    });
+};

@@ -44,7 +44,7 @@ export let mostrarCelularesMarca = (req, res) => {
 
 export let cel = (req, res) => {
     console.log("Accediendo a la ruta /celulares");
-    connection.query("SELECT (Modelo_Celular, Marca_Celular) FROM Celulares")
+    connection.query("SELECT Modelo_Celular, Marca_Celular FROM Celulares")
     .then((data) => {
         console.log("Estos son los celulares: ", data[0]);
         res.status(200).json(data[0]);
